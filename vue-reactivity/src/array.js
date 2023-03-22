@@ -1,8 +1,8 @@
-const items = [];
+export const items = [];
 
 const ApiLinks = {
   Breeds: "https://dog.ceo/api/breeds/list/all",
-  Images: `https://dog.ceo/api/breed/${DOMSelectors.input.value}/images/random`,
+  Images: `https://dog.ceo/api/breed//images/random`,
 };
 
 async function getImage(URL) {
@@ -11,12 +11,10 @@ async function getImage(URL) {
       `https://dog.ceo/api/breed/${URL}/images/random`
     );
     const image = await response.json();
-    console.log(`status code: ${response.status}`);
+    //console.log(`status code: ${response.status}`);
     return image.message;
   } catch (error) {
     console.log(error);
-    clear();
-    DOMSelectors.parent.innerHTML = `<p class="error">${error}</p>`;
   }
 }
 
@@ -27,29 +25,28 @@ async function getData(URL) {
     const Data = object.message;
     const primaryBreeds = Object.keys(Data);
     console.log(primaryBreeds);
-    const subBreeds = Object.values(Data).filter(
-      (object) => object.length >= 1
-    );
-    console.log(subBreeds);
-    const data = primaryBreeds.concat(...subBreeds);
-    console.log(data);
     return primaryBreeds;
   } catch (error) {
     console.log(error);
-    clear();
-    DOMSelectors.parent.innerHTML = `<p class="error">${error}</p>`;
   }
 }
 
 async function parentInserter(breed) {
   let image = await getImage(breed);
+  console.log(image);
+  return image;
 }
 
-function startUp() {
-  clear();
+export function startUp() {
   getData(ApiLinks.Breeds).then((data) => {
     data.forEach((breed) => {
-      parentInserter(breed);
+      const image = parentInserter(breed);
+      const dog = {
+        breed: breed,
+        image: image,
+      };
+      items.push(dog);
     });
+    console.log(items);
   });
 }
