@@ -1,6 +1,13 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
 import CardTemplates from "./components/icons/cardTemplates.vue";
+import { dogs } from "./array";
+import { def } from "@vue/shared";
+export default {
+  data() {
+    return { dogs };
+  },
+};
 </script>
 
 <template>
