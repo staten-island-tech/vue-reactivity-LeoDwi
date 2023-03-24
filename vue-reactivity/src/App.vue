@@ -1,10 +1,10 @@
-<script setup>
+<script>
 import { RouterLink, RouterView } from "vue-router";
-import CardTemplates from "./components/icons/cardTemplates.vue";
+import DogCard from "./components/icons/cardTemplates.vue";
 </script>
 
 <template>
-  <header>
+  <!--   <header>
     <img
       alt="Vue logo"
       class="logo"
@@ -22,8 +22,8 @@ import CardTemplates from "./components/icons/cardTemplates.vue";
       </nav>
     </div>
   </header>
-
-  <RouterView />
+ -->
+  <DogCard />
 </template>
 
 <style scoped>
