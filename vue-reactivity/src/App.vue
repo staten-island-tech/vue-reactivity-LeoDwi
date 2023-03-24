@@ -1,6 +1,6 @@
 <script>
 import { RouterLink, RouterView } from "vue-router";
-import DogCard from "./components/icons/cardTemplates.vue";
+import DogCard from "./components/icons/DogCard.vue";
 </script>
 
 <template>
