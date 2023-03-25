@@ -14,10 +14,12 @@ export default {
 </script>
 
 <template>
-  <cardTemplates
-    :arrayItem="dog"
-    :dogArray="dogs"
-    :dogBreed="dog.breed"
-    :dogImage="dog.image"
-  />
+  <div>
+    <cardTemplates
+      v-for="dog in dogs"
+      v-bind:key="dog"
+      :dogBreed="dog.breed"
+      :dogImage="dog.image"
+    />
+  </div>
 </template>

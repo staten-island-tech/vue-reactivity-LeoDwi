@@ -1,10 +1,9 @@
-<template v-for="{ arrayItem } in { dogArray }" v-bind:key="{ arrayItem }">
+<template>
   <div class="card">
-    <h1>this is a card</h1>
-    <h2 :class="name">
+    <h2 class="name">
       {{ dogBreed }}
     </h2>
-    <img :src="{ dogImage }" />
+    <img class="image" v-bind:src="dogImage" />
   </div>
 </template>
 
@@ -14,8 +13,36 @@ export default {
   props: {
     dogBreed: String,
     dogImage: String,
-    arrayItem: String,
-    dogArray: Array,
   },
 };
 </script>
+
+<style scoped>
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  font-size: 50px;
+  padding: 30px 30px;
+  margin: 10px 20px;
+  width: 25vw;
+  border: black solid 3px;
+  border-radius: 10px;
+}
+
+.card:hover {
+  transform: scale(105%);
+}
+.name {
+  font-size: 30px;
+}
+.image {
+  float: left;
+  width: 20vw;
+  height: 20vw;
+  object-fit: cover;
+}
+</style>
