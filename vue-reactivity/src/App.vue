@@ -1,6 +1,12 @@
 <script>
 import { RouterLink, RouterView } from "vue-router";
-import DogCard from "./components/icons/DogCard.vue";
+import HomeView from "./views/HomeView.vue";
+export default {
+  name: "app",
+  components: {
+    HomeView,
+  },
+};
 </script>
 
 <template>
@@ -23,7 +29,7 @@ import DogCard from "./components/icons/DogCard.vue";
     </div>
   </header>
  -->
-  <DogCard />
+  <HomeView />
 </template>
 
 <style scoped>

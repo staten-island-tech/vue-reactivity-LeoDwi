@@ -1,9 +1,23 @@
-<script setup>
-//import TheWelcome from "../components/TheWelcome.vue";
+<script>
+import cardTemplates from "../components/icons/cardTemplates.vue";
+import { dogs } from "../array.js";
+
+export default {
+  name: "HomeView",
+  components: { cardTemplates },
+  data() {
+    return {
+      dogs,
+    };
+  },
+};
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <cardTemplates
+    :arrayItem="dog"
+    :dogArray="dogs"
+    :dogBreed="dog.breed"
+    :dogImage="dog.image"
+  />
 </template>

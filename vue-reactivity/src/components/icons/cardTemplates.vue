@@ -1,22 +1,21 @@
-<template>
-  <div class="DogCard">
-    <DogCard
-      ><h2 :class="name" v-for="object in array" v-bind:key="object">
-        {{ object.property }}
-      </h2>
-      <img alt="doggo" class="image" v-bind:src="image"
-    /></DogCard>
+<template v-for="{ arrayItem } in { dogArray }" v-bind:key="{ arrayItem }">
+  <div class="card">
+    <h1>this is a card</h1>
+    <h2 :class="name">
+      {{ dogBreed }}
+    </h2>
+    <img :src="{ dogImage }" />
   </div>
 </template>
 
 <script>
 export default {
-  name: "CardTemplates",
+  name: "cardTemplates",
   props: {
-    object,
-    array,
-    property,
-    image,
+    dogBreed: String,
+    dogImage: String,
+    arrayItem: String,
+    dogArray: Array,
   },
 };
 </script>
