@@ -10,7 +10,7 @@ export default {
 </script>
 
 <template>
-  <!--   <header>
+  <header>
     <img
       alt="Vue logo"
       class="logo"
@@ -28,7 +28,7 @@ export default {
       </nav>
     </div>
   </header>
- -->
+
   <HomeView />
 </template>
 

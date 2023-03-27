@@ -1,25 +1,50 @@
 <script>
-import cardTemplates from "../components/icons/cardTemplates.vue";
+import cardTemplate from "../components/icons/cardTemplate.vue";
 import { dogs } from "../array.js";
 
 export default {
   name: "HomeView",
-  components: { cardTemplates },
+  components: { cardTemplate },
   data() {
     return {
       dogs,
+      price: new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+      }),
     };
   },
+  methods: {
+    addToCart(object) {
+      cartItems.push(object);
+      console.log(cartItems);
+    },
+  },
 };
+export const cartItems = [];
 </script>
 
 <template>
-  <div>
-    <cardTemplates
+  <div class="parent">
+    <cardTemplate
       v-for="dog in dogs"
       v-bind:key="dog"
       :dogBreed="dog.breed"
       :dogImage="dog.image"
+      :dogPrice="price.format(dog.price)"
+      :buttonLabel="'Add to Cart'"
+      :cartButton="addToCart(dog)"
     />
   </div>
 </template>
+
+<style scoped>
+.parent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: row;
+  width: 100vw;
+  background-color: aliceblue;
+}
+</style>
