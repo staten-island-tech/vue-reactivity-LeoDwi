@@ -33,7 +33,12 @@ export const cartItems = [];
       :dogImage="dog.image"
       :dogPrice="price.format(dog.price)"
       :buttonLabel="'Add to Cart'"
-      :cartButton="addToCart(dog)"
+      :cartButton="
+        addToCart({
+          breed: dog.breed,
+          image: dog.image,
+        })
+      "
     />
   </div>
 </template>
