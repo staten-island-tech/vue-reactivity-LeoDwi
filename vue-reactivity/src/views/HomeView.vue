@@ -37,6 +37,7 @@ export const cartItems = [];
         addToCart({
           breed: dog.breed,
           image: dog.image,
+          price: dog.price,
         })
       "
     />
