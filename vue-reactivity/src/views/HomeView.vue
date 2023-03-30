@@ -17,7 +17,7 @@ export default {
   methods: {
     addToCart(object) {
       cartItems.push(object);
-      //console.log(cartItems);
+      console.log(cartItems);
     },
   },
 };
