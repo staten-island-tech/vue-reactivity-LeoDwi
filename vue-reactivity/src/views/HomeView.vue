@@ -17,9 +17,10 @@ export default {
   },
   methods: {
     async addToCart(object) {
+      upToDate = false;
       cartItems.push(object);
-      await nextTick();
-      //console.log(cartItems);
+      await this.$nextTick();
+      upToDate = true;
       console.log(cartItems);
     },
   },

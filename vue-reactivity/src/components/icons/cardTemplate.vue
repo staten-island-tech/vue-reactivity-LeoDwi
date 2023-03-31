@@ -6,7 +6,7 @@
     <img class="image" v-bind:src="dogImage" v-bind:alt="dogBreed" />
     <h2 class="price">{{ dogPrice }}</h2>
     <button
-      @click="
+      @click.self="
         {
           {
             cartButton;

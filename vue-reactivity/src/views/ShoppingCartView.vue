@@ -15,15 +15,18 @@ export default {
     };
   },
   methods: {
-    removeFromCart(breed) {
+    async removeFromCart(breed) {
       cartItems.splice(cartItems.findIndex(breed), 1);
+      upToDate = false;
+      await this.$nextTick();
+      upToDate = true;
     },
   },
 };
 </script>
 
 <template>
-  <div class="parent">
+  <div class="parent" v-if="upToDate">
     <cardTemplate
       v-for="dog in cartItems"
       v-bind:key="dog"
@@ -31,7 +34,7 @@ export default {
       :dogImage="dog.image"
       :dogPrice="price.format(dog.price)"
       :buttonLabel="'Remove From Cart'"
-      :cartButton="removeFromCart"
+      :cartButton="removeFromCart(dog.breed)"
     />
   </div>
 </template>
