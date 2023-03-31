@@ -20,6 +20,7 @@ export default {
       cartItems.push(object);
       await nextTick();
       //console.log(cartItems);
+      console.log(cartItems);
     },
   },
 };
