@@ -1,6 +1,7 @@
 <script>
 import cardTemplate from "../components/icons/cardTemplate.vue";
 import { dogs } from "../array.js";
+import { nextTick } from "vue";
 
 export default {
   name: "HomeView",
@@ -15,8 +16,9 @@ export default {
     };
   },
   methods: {
-    addToCart(object) {
+    async addToCart(object) {
       cartItems.push(object);
+      await nextTick();
       //console.log(cartItems);
     },
   },
