@@ -4,14 +4,15 @@
       {{ dogBreed }}
     </h2>
     <img class="image" v-bind:src="dogImage" v-bind:alt="dogBreed" />
-    <h2 class="price">{{ dogPrice }}</h2>
+    <h2 class="price">{{ price.format(dogPrice) }}</h2>
     <button
       @click.self="
-        {
-          {
-            cartButton;
-          }
-        }
+        addToCart({
+          breed: dogBreed,
+          image: dogImage,
+          price: dogPrice,
+          count: 1,
+        })
       "
     >
       {{ buttonLabel }}
@@ -20,16 +21,35 @@
 </template>
 
 <script>
+import { reactive } from "vue";
 export default {
   name: "cardTemplate",
   props: {
     dogBreed: String,
     dogImage: String,
-    dogPrice: String,
+    dogPrice: Number,
     buttonLabel: String,
-    cartButton: Function,
+    //cartButton: Function,
+  },
+  methods: {
+    async addToCart(object) {
+      console.log(object);
+      cartItems.push(object);
+      await this.$nextTick();
+      console.log(cartItems);
+    },
+  },
+  data() {
+    return {
+      price: new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+      }),
+    };
   },
 };
+
+export const cartItems = reactive([]);
 </script>
 
 <style scoped>

@@ -1,10 +1,11 @@
 <script>
-import cardTemplate from "../components/icons/cardTemplate.vue";
-import { cartItems } from "./HomeView.vue";
+import cartCard from "../components/icons/cartCard.vue";
+import { cartItems } from "../components/icons/cardTemplate.vue";
+import { nextTick } from "vue";
 
 export default {
   name: "ShoppingCart",
-  components: { cardTemplate },
+  components: { cartCard },
   data() {
     return {
       cartItems,
@@ -12,29 +13,33 @@ export default {
         style: "currency",
         currency: "USD",
       }),
+      upToDate: true,
+      totalPrice: 0,
     };
   },
-  methods: {
-    async removeFromCart(breed) {
-      cartItems.splice(cartItems.findIndex(breed), 1);
-      upToDate = false;
-      await this.$nextTick();
-      upToDate = true;
+  /*   methods: {
+    getTotalPrice(price) {
+      price + this.totalPrice;
     },
-  },
+  }, */
 };
 </script>
 
 <template>
   <div class="parent" v-if="upToDate">
-    <cardTemplate
+    <cartCard
       v-for="dog in cartItems"
       v-bind:key="dog"
       :dogBreed="dog.breed"
       :dogImage="dog.image"
       :dogPrice="price.format(dog.price)"
       :buttonLabel="'Remove From Cart'"
-      :cartButton="removeFromCart(dog.breed)"
     />
   </div>
 </template>
+
+<style scoped>
+.parent {
+  background-color: aliceblue;
+}
+</style>

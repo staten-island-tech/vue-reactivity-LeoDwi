@@ -1,7 +1,8 @@
 <script>
 import cardTemplate from "../components/icons/cardTemplate.vue";
+import { cartItems } from "../components/icons/cardTemplate.vue";
 import { dogs } from "../array.js";
-import { nextTick } from "vue";
+import { nextTick, reactive } from "vue";
 
 export default {
   name: "HomeView",
@@ -13,19 +14,11 @@ export default {
         style: "currency",
         currency: "USD",
       }),
+      upToDate: true,
     };
   },
-  methods: {
-    async addToCart(object) {
-      upToDate = false;
-      cartItems.push(object);
-      await this.$nextTick();
-      upToDate = true;
-      console.log(cartItems);
-    },
-  },
 };
-export const cartItems = [];
+//export const cartItems = reactive([]);
 </script>
 
 <template>
@@ -35,15 +28,9 @@ export const cartItems = [];
       v-bind:key="dog"
       :dogBreed="dog.breed"
       :dogImage="dog.image"
-      :dogPrice="price.format(dog.price)"
+      :dogPrice="dog.price"
+      :dogObject="dog.breed"
       :buttonLabel="'Add to Cart'"
-      :cartButton="
-        addToCart({
-          breed: dog.breed,
-          image: dog.image,
-          price: dog.price,
-        })
-      "
     />
   </div>
 </template>
