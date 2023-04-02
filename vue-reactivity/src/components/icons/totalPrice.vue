@@ -30,6 +30,7 @@ export default {
 
 <style lang="css" scoped>
 .total {
+  text-align: center;
   color: black;
 }
 </style>

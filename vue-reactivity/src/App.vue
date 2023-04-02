@@ -15,7 +15,7 @@ export default {
       <div class="wrapper">
         <h1 class="title">Buy some dogs now.</h1>
         <nav>
-          <RouterLink to="/">Home</RouterLink>
+          <RouterLink to="/">Shop:</RouterLink>
           <RouterLink to="/parent">Go To Cart:</RouterLink>
         </nav>
       </div>
@@ -29,14 +29,21 @@ export default {
   background-color: aliceblue;
 }
 
+.wrapper {
+  text-align: center;
+  width: 100vw;
+}
+
 .title {
   font-size: 50px;
   text-align: center;
+  width: 100vw;
 }
 
 header {
   line-height: 1.5;
   max-height: 100vh;
+  text-align: center;
 }
 
 nav {
@@ -77,12 +84,12 @@ nav a:first-of-type {
 
   header .wrapper {
     display: flex;
-    place-items: flex-start;
+    place-items: center;
     flex-wrap: wrap;
   }
 
   nav {
-    text-align: left;
+    text-align: center;
     margin-left: -1rem;
     font-size: 1rem;
 

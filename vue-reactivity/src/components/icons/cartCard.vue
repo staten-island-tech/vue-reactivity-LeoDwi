@@ -50,7 +50,8 @@ export default {
   font-size: 50px;
   padding: 30px 30px;
   margin: 10px 20px;
-  width: 80vw;
+  width: 90vw;
+  height: 10vw;
   border: black solid 3px;
   border-radius: 10px;
 }
@@ -63,9 +64,10 @@ export default {
   color: black;
 }
 .image {
+  scale: 120%;
   float: left;
-  width: 20vw;
-  height: 20vw;
+  width: 10vw;
+  height: 10vw;
   object-fit: cover;
 }
 
