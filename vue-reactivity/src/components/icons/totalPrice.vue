@@ -20,9 +20,7 @@ export default {
     getTotalPrice() {
       let currentPrice = 0;
       cartItems.forEach((dog) => {
-        currentPrice += dog.price;
-        console.log(dog.price);
-        console.log(currentPrice);
+        currentPrice += dog.price * dog.count;
       });
       return currentPrice;
     },

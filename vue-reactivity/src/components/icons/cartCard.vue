@@ -4,8 +4,9 @@
     <h2 class="name">
       {{ dogBreed }}
     </h2>
-    <h2 class="price">{{ dogPrice }}</h2>
-    <button @click="removeFromCart">
+    <h2 class="price">Price per unit:{{ dogPrice }}</h2>
+    <h2 class="count">Count:{{ dogCount }}</h2>
+    <button @click="removeFromCart(dogBreed)">
       {{ buttonLabel }}
     </button>
   </div>
@@ -19,12 +20,19 @@ export default {
     dogBreed: String,
     dogImage: String,
     dogPrice: String,
+    dogCount: Number,
     buttonLabel: String,
   },
   methods: {
     removeFromCart(dogBreed) {
+      console.log(dogBreed);
       let card = cartItems.find((dog) => dog.breed === dogBreed);
-      cartItems.splice(card, 1);
+      console.log(card.count);
+      if (card.count > 1) {
+        card.count -= 1;
+      } else {
+        cartItems.splice(card, 1);
+      }
       console.log(cartItems);
     },
   },
@@ -61,7 +69,8 @@ export default {
   object-fit: cover;
 }
 
-.price {
+.price,
+.count {
   font-size: 20px;
   color: black;
 }

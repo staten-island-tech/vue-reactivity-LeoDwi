@@ -14,10 +14,6 @@ export default {
         style: "currency",
         currency: "USD",
       }),
-      /*       getTotalPrice: cartItems.forEach((dog) => {
-        dog.price + currentPrice;
-        console.log(dog.price);
-      }), */
     };
   },
   methods: {},
@@ -31,6 +27,7 @@ export default {
       v-bind:key="dog"
       :dogBreed="dog.breed"
       :dogImage="dog.image"
+      :dogCount="dog.count"
       :dogPrice="price.format(dog.price)"
       :buttonLabel="'Remove From Cart'"
     />

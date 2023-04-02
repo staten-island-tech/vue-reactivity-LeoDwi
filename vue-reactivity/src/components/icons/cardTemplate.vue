@@ -34,7 +34,12 @@ export default {
   methods: {
     addToCart(object) {
       console.log(object);
-      cartItems.push(object);
+      let card = cartItems.find((dog) => dog.breed === object.breed);
+      if (card != null) {
+        card.count++;
+      } else {
+        cartItems.push(object);
+      }
       console.log(cartItems);
     },
   },

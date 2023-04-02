@@ -10,17 +10,10 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="body">
     <header>
-      <img
-        alt="Vue logo"
-        class="logo"
-        src="@/assets/logo.svg"
-        width="125"
-        height="125"
-      />
-
       <div class="wrapper">
+        <h1 class="title">Buy some dogs now.</h1>
         <nav>
           <RouterLink to="/">Home</RouterLink>
           <RouterLink to="/parent">Go To Cart:</RouterLink>
@@ -32,14 +25,18 @@ export default {
 </template>
 
 <style scoped>
+.body {
+  background-color: aliceblue;
+}
+
+.title {
+  font-size: 50px;
+  text-align: center;
+}
+
 header {
   line-height: 1.5;
   max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
 }
 
 nav {
