@@ -32,10 +32,9 @@ export default {
     //cartButton: Function,
   },
   methods: {
-    async addToCart(object) {
+    addToCart(object) {
       console.log(object);
       cartItems.push(object);
-      await this.$nextTick();
       console.log(cartItems);
     },
   },

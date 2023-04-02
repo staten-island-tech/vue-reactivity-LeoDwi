@@ -2,7 +2,6 @@
 import cardTemplate from "../components/icons/cardTemplate.vue";
 import { cartItems } from "../components/icons/cardTemplate.vue";
 import { dogs } from "../array.js";
-import { nextTick, reactive } from "vue";
 
 export default {
   name: "HomeView",
@@ -10,15 +9,9 @@ export default {
   data() {
     return {
       dogs,
-      price: new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD",
-      }),
-      upToDate: true,
     };
   },
 };
-//export const cartItems = reactive([]);
 </script>
 
 <template>
