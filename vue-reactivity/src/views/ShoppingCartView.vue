@@ -1,11 +1,11 @@
 <script>
 import cartCard from "../components/icons/cartCard.vue";
-//import totalPrice from "../components/icons/totalPrice.vue";
+import totalPrice from "../components/icons/totalPrice.vue";
 import { cartItems } from "../components/icons/cardTemplate.vue";
 
 export default {
   name: "ShoppingCart",
-  components: { cartCard /* totalPrice */ },
+  components: { cartCard, totalPrice },
   data() {
     return {
       cartItems,
@@ -14,14 +14,13 @@ export default {
         style: "currency",
         currency: "USD",
       }),
+      /*       getTotalPrice: cartItems.forEach((dog) => {
+        dog.price + currentPrice;
+        console.log(dog.price);
+      }), */
     };
   },
-  /*  methods: {
-    getTotalPrice: cartItems.forEach((dog) => {
-      dog.price + currentPrice;
-      console.log(dog.price);
-    }),
-  }, */
+  methods: {},
 };
 </script>
 
@@ -35,7 +34,7 @@ export default {
       :dogPrice="price.format(dog.price)"
       :buttonLabel="'Remove From Cart'"
     />
-    <!--   <totalPrice :totalPrice="currentPrice.getTotalPrice" /> -->
+    <totalPrice />
   </div>
 </template>
 
