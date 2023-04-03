@@ -29,7 +29,6 @@ export default {
     dogImage: String,
     dogPrice: Number,
     buttonLabel: String,
-    //cartButton: Function,
   },
   methods: {
     addToCart(object) {
